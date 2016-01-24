@@ -1,0 +1,28 @@
+
+
+<div class="login">
+  <div class="container">
+    <div class="form">
+
+    <h1>Registrate</h1>
+
+    <%= form_for(@user) do |f| %>
+      <!--<%= f.label :PLop%>-->
+      <%= f.text_field :nick_name, :placeholder => "Sobrenombre del usuario" %><br>
+      <%= f.text_field :first_name, :placeholder => "Nombre" %><br>
+      <%= f.text_field :last_name, :placeholder => "Apellido" %><br>
+      <%= f.email_field :email, :placeholder => "Email" %><br>
+      <%= f.password_field :password, :placeholder => "Contraseña" %><br>      
+      <%= f.password_field :password_confirmation, :placeholder => "Confirmar contraseña" %><br>
+
+      	<%= radio_button_tag(:Isadmin, true) %>
+		<%= label_tag(:Isadmin_true, "Admin User") %>
+		<%= radio_button_tag(:Isadmin, false) %>
+		<%= label_tag(:Isadmin_false, "Current User") %><br>
+      <%= f.submit "Create an account", class: "btn-submit" %>
+    <% end %>
+
+  
+    </div>
+  </div>
+</div>
