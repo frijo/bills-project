@@ -1,13 +1,31 @@
 
-
+<!-- Create User Template-->
 <div class="login">
   <div class="container">
     <div class="form">
 
     <h1>Registrate</h1>
+<!-- Form Create User --> 
 
     <%= form_for(@user) do |f| %>
-      <!--<%= f.label :PLop%>-->
+
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2> 
+          <%= pluralize(@user.errors.count, "error") %> El usuario no se registro debido:
+        </h2>
+            <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+
+              <% end %>
+            </ul>   
+          
+      </div>  
+    <% end %>
+  
+     
+      
       <%= f.text_field :nick_name, :placeholder => "Sobrenombre del usuario" %><br>
       <%= f.text_field :first_name, :placeholder => "Nombre" %><br>
       <%= f.text_field :last_name, :placeholder => "Apellido" %><br>
@@ -15,14 +33,16 @@
       <%= f.password_field :password, :placeholder => "Contraseña" %><br>      
       <%= f.password_field :password_confirmation, :placeholder => "Confirmar contraseña" %><br>
 
-      	<%= radio_button_tag(:Isadmin, true) %>
-		<%= label_tag(:Isadmin_true, "Admin User") %>
-		<%= radio_button_tag(:Isadmin, false) %>
-		<%= label_tag(:Isadmin_false, "Current User") %><br>
-      <%= f.submit "Create an account", class: "btn-submit" %>
-    <% end %>
+  		<%=f.radio_button :admin, true %>
+  		<%=f.label :true, 'Usuario administrador'%>
+  		<%=f.radio_button :admin, false%>
+  		<%=f.label :false, 'Usuario normal'%><br>
+
+      <%= f.submit "Registrar Usuario", class: "btn-submit" %>
+  <% end %>
 
   
     </div>
   </div>
 </div>
+
