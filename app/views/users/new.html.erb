@@ -14,12 +14,10 @@
         <h2> 
           <%= pluralize(@user.errors.count, "error") %> El usuario no se registro debido:
         </h2>
-            <ul>
-              <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-
-              <% end %>
-            </ul>   
+        <% @user.errors.each do |attr,msg|  %>
+          <li><%=msg%></li>
+        <% end %>
+            
           
       </div>  
     <% end %>
@@ -32,7 +30,6 @@
       <%= f.email_field :email, :placeholder => "Email" %><br>
       <%= f.password_field :password, :placeholder => "Contraseña" %><br>      
       <%= f.password_field :password_confirmation, :placeholder => "Confirmar contraseña" %><br>
-
   		<%=f.radio_button :admin, true %>
   		<%=f.label :true, 'Usuario administrador'%>
   		<%=f.radio_button :admin, false%>

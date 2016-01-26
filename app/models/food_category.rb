@@ -1,3 +1,3 @@
 class FoodCategory < ActiveRecord::Base
-	has_many :food 
+	has_many :foods 
 end
