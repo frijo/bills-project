@@ -20,4 +20,39 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    messages:
+      confirmation: "Las contraseñas no concuerdan"
+
+  activerecord:
+
+    errors:
+      models:
+        user:
+          attributes:
+           
+            password:
+              blank: "Por favor especifique la contraseña"
+              confirmation: "Las contraseñas no concuerdan"
+            password_confirmation:
+              blank: "Por favor especifique la contraseña de confirmacion"
+           
+        pdf:
+          attributes:
+            name:
+              blank: "Please Specify name to PDF"
+              taken: "Please use different name for PDF"
+            attachment:
+              blank: "Please Upload a PDF Attachment"
+        data_element:
+          attributes:
+            name:
+              blank: "Please give Element a desired name"
+              taken: "Already Created Element with given name"
+            color:
+              blank: "Please assign a color to Element"
+        template:
+          attributes:
+            name:
+              blank: "Please Specify a Name"
+              taken: "Please use a different name"

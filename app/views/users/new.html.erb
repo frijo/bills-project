@@ -9,33 +9,35 @@
 
     <%= form_for(@user) do |f| %>
 
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2> 
-          <%= pluralize(@user.errors.count, "error") %> El usuario no se registro debido:
-        </h2>
-        <% @user.errors.each do |attr,msg|  %>
-          <li><%=msg%></li>
-        <% end %>
-            
-          
-      </div>  
-    <% end %>
+    
   
      
+     
+      <%= f.text_field :nick_name, class: "form-control", :placeholder => "Sobrenombre del usuario" %>
+      <%= f.error_message_on :nick_name %><br>
+
+      <%= f.text_field :first_name, class: "form-control", :placeholder => "Nombre" %>
+      <%= f.error_message_on :first_name %><br>
       
-      <%= f.text_field :nick_name, :placeholder => "Sobrenombre del usuario" %><br>
-      <%= f.text_field :first_name, :placeholder => "Nombre" %><br>
-      <%= f.text_field :last_name, :placeholder => "Apellido" %><br>
-      <%= f.email_field :email, :placeholder => "Email" %><br>
-      <%= f.password_field :password, :placeholder => "Contraseña" %><br>      
-      <%= f.password_field :password_confirmation, :placeholder => "Confirmar contraseña" %><br>
-  		<%=f.radio_button :admin, true %>
+      <%= f.text_field :last_name, class: "form-control", :placeholder => "Apellido" %>
+      <%= f.error_message_on :last_name %><br>
+      
+      <%= f.email_field :email, class: "form-control",:placeholder => "Email" %>
+      <%= f.error_message_on :email %><br>
+      
+      <%= f.password_field :password, class: "form-control", :placeholder => "Contraseña" %>
+      <%= f.error_message_on :password %><br>      
+      
+      <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Confirmar contraseña" %>
+      <%= f.error_message_on :password_confirmation %><br>
+  		
+      <%=f.radio_button :admin,true,class: "RadioBtn-IsAdmin" %>
   		<%=f.label :true, 'Usuario administrador'%>
-  		<%=f.radio_button :admin, false%>
+  		<%=f.radio_button :admin, false ,class: "RadioBtn-IsAdmin"%>
   		<%=f.label :false, 'Usuario normal'%><br>
 
-      <%= f.submit "Registrar Usuario", class: "btn-submit" %>
+      <%= f.button "Registrar Usuario", class: "btn btn-success"  %>
+      <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
   <% end %>
 
   
