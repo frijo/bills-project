@@ -4,7 +4,13 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+gem 'sqlite3', group: :development
+gem 'pg',group: :production
+gem 'rails_12factor', group: :production
+
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -33,6 +39,8 @@ gem 'hirb'
 gem 'table_print'
 
 gem 'dynamic_form'
+
+gem "paperclip", "~> 4.3"
 # Use Unicorn as the app server
 # gem 'unicorn'
 

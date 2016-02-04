@@ -1,6 +1,12 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
 	has_secure_password
+  
+
+  has_attached_file :profile_photo
+  validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
+
+
 	validates :nick_name, :email,:first_name,:last_name, :email, presence:{message: "Este campo no puede estar en blanco"}
 	validates :nick_name, uniqueness:{message: "Este nombre de usuario esta en uso"}
 	

@@ -131,3 +131,15 @@
   width: 135px;
 
 }
+.input-group {
+    border-collapse: separate;
+    display: table;
+    position: relative;
+}
+.file-input{
+
+  width: 350px;
+}
+.btn btn-primary btn-file span{
+  content: "buscar";
+}

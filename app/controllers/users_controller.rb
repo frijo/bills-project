@@ -16,6 +16,10 @@ class UsersController < ApplicationController
 	private
   	def user_params
   		# debugger # ---> Use to debug the app in console
-    	  params.required(:user).permit(:nick_name,:first_name,:last_name,:email,:password,:password_confirmation,:admin)
+    	  params.required(:user).permit(:nick_name,:first_name,:last_name,:email,:password,:password_confirmation,:admin,:profile_photo)
+    	  
+    	  
   	end
+  	
+
 end
