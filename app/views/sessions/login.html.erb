@@ -1,0 +1,16 @@
+<div class="login">
+	<div class="container">
+		<div class="form">
+
+      <h1>Iniciar Sesion</h1>			
+      <%= form_for(:session, url: login_path) do |f| %> 
+        <%= f.text_field :nick_name,class: "form-control", :placeholder => "Sobrenombre" %> <br>
+        <%= f.password_field :password,class: "form-control", :placeholder => "Contraseña" %><br>
+        <div class="login-buttoms"> 
+	        <%= f.button "Entrar", class: "btn btn-success" %>
+	        <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
+        </div>
+      <% end %>		
+    </div>
+	</div>
+</div>

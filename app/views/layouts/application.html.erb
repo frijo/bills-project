@@ -16,28 +16,45 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
   <%= csrf_meta_tags %>
 
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      
-      <a href="#" class="navbar-brand">Brand</a>
-    </div>
+<div class="header">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        
+        <a href="#" class="navbar-brand">Brand</a>
+        <i class="glyphicon glyphicon-cutlery"></i>
+      </div>
 
-    <div id="bs-example-navbar-collapse-2" class="collapse navbar-collapse">
-      
-      
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Iniciar sesion", 'login',class: "user-links" %></a></li>
-        <li><%= link_to "Registrarse", 'signup',class: "user-links" %></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+      <div id="bs-example-navbar-collapse-2" class="collapse navbar-collapse">
+        
+        
+        <ul class="nav navbar-nav navbar-right">
+           <% if current_user %> 
+                
+               <li class = "current-user"><%= image_tag current_user.profile_photo,class: "img-circle"%><%= current_user.nick_name %></li>
+               <li class = "user-links"><%= link_to "Cerrar Sesion", logout_path,method: "delete" %></li>
 
+<!--
+              <li class="user-links"><%= current_user.nick_name%></li> 
+              <li class= "user-links"><%= link_to "Cerrar sesion", logout_path, method: "delete"%></li> 
+-->
+            
+          <% else %> 
+
+
+            <li><%= link_to "Iniciar sesion", '/login',class: "user-links" %></a></li>
+            <li><%= link_to "Registrarse", 'signup',class: "user-links" %></a></li>
+          <%end%>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
 
 <%= yield %>
 

@@ -72,10 +72,18 @@
 }
 
 /*---------------Navbar Styles--------------------*/
-
+.header{
+  width: 100%;
+  position: fixed;
+}
+.login{
+  padding-top: 100px;
+}
 .navbar-inverse {
     background-color: #a7bc7a;
     border-color: #586835;
+    opacity: 0.9
+
 }
 .navbar-inverse .navbar-brand {
     color: #ffffff;
@@ -100,6 +108,23 @@
   
   color: #586835;
   text-shadow: 0 1px 1px #bdcd9c;
+}
+.current-user {
+    color: #ffffff;
+    text-shadow: 0 -1px 1px #586835;
+    border-left: 1px solid #839b4e;
+    font-weight: bold;
+    padding: 15px;
+}
+.glyphicon-cutlery{
+
+  top: 15px;
+  color: white;
+}
+.img-circle{
+  width: 35px;
+  height: 35px;
+  margin-top: 8px
 }
 
 /*Field errors*/
@@ -127,10 +152,7 @@
 #user_admin_true, #user_admin_false{
   width: 20px;
 }
-.login .btn-danger{
-  width: 135px;
 
-}
 .input-group {
     border-collapse: separate;
     display: table;
@@ -140,6 +162,14 @@
 
   width: 350px;
 }
-.btn btn-primary btn-file span{
-  content: "buscar";
+.login-buttoms{
+  width: 350px;
+}
+.btn-success,.btn-danger{
+  width: 49%
+}
+
+.login .container{
+  width: 400px;
+  text-align: center;
 }

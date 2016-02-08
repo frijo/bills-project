@@ -1,7 +1,7 @@
 
 <!-- Create User Template-->
 <div class="login">
-  <div class="container">
+  <div id ="login-container" class="container">
     <div class="form">
 
     <h1>Registrate</h1>
@@ -46,9 +46,10 @@
   		<%=f.label :true, 'Usuario administrador'%>
   		<%=f.radio_button :admin, false ,class: "RadioBtn-IsAdmin"%>
   		<%=f.label :false, 'Usuario normal'%><br>
-
-      <%= f.button "Registrar Usuario", class: "btn btn-success"  %>
-      <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
+      <div class="login-buttoms">
+        <%= f.button "Registrar Usuario", class: "btn btn-success"  %>
+        <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
+      </div>
   <% end %>
 
   
