@@ -70,14 +70,22 @@
   color: white;
   background-color:#a7bc7a; 
 }
+body{
+ background: url("https://thelemursarehungry.files.wordpress.com/2011/04/beef-asparagus-salad.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    
+}
 
 /*---------------Navbar Styles--------------------*/
 .header{
   width: 100%;
   position: fixed;
 }
-.login{
-  padding-top: 100px;
+.container{
+  padding-top: 50px;
 }
 .navbar-inverse {
     background-color: #a7bc7a;
