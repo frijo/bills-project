@@ -8,7 +8,7 @@ gem 'rails', '4.2.4'
 gem 'sqlite3', group: :development
 gem 'pg',group: :production
 gem 'rails_12factor', group: :production
- gem 'rails_serve_static_assets'
+
 
 
 # Use SCSS for stylesheets
