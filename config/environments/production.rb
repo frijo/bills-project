@@ -2,7 +2,8 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
-  config.cache_classes = true
+
+  config.cache_classes = true #chaging value to true this allow show the image in heroku
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -15,7 +16,8 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   #Permit show image on the server Heroku
-  config.serve_static_assets = true
+
+  config.serve_static_assets = true #chaging value to true this allow show the image in heroku
   
  
   
@@ -35,11 +37,13 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+
+  config.assets.compile = false #chaging value to true this allow show the image in heroku
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
-  config.assets.digest = true
+  
+  config.assets.digest = true  #chaging value to true this allow show the image in heroku
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
