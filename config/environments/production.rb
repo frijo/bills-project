@@ -17,7 +17,7 @@ Rails.application.configure do
 
   #Permit show image on the server Heroku
 
-  config.serve_static_assets = true #chaging value to true this allow show the image in heroku
+  config.serve_static_assets = false #chaging value to true this allow show the image in heroku
   
  
   
@@ -38,12 +38,12 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
 
-  config.assets.compile = false #chaging value to true this allow show the image in heroku
+  config.assets.compile = true #chaging value to true this allow show the image in heroku
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   
-  config.assets.digest = false  #chaging value to true this allow show the image in heroku
+  config.assets.digest = true  #chaging value to true this allow show the image in heroku
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
