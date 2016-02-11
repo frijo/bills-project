@@ -15,8 +15,9 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
 
   #Permit show image on the server Heroku
+config.serve_static_assets = true
+config.assets.compile = true
 
-config.serve_static_assets=false
   
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
