@@ -11,4 +11,11 @@ class ApplicationController < ActionController::Base
   def require_user
     redirect_to '/login' unless current_user
   end
+  
+  def require_admin
+    redirect_to '/main' unless current_user.admin_user?
+  end
+  def require_normal_user
+    redirect_to '/main' unless current_user.normal_user?
+  end
 end

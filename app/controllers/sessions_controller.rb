@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  	before_action :require_user, only: [:logout]
   	def login
   	end
   	
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
 	  @user = User.find_by_nick_name(params[:session][:nick_name])
 	  if @user && @user.authenticate(params[:session][:password])
 	    session[:user_id] = @user.id
-	    redirect_to '/'
+	    redirect_to '/main'
 	  else
 	    redirect_to '/login'
 	  end 

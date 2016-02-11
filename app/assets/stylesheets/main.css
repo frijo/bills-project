@@ -71,7 +71,9 @@
   background-color:#a7bc7a; 
 }
 body{
- background: url("https://thelemursarehungry.files.wordpress.com/2011/04/beef-asparagus-salad.jpg") no-repeat center center fixed;
+ 
+ background: url(../assets/005.jpg) no-repeat center center fixed;
+ 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -83,6 +85,9 @@ body{
 .header{
   width: 100%;
   position: fixed;
+}
+.navbar-header{
+  width: 120px;
 }
 .container{
   padding-top: 50px;
@@ -101,8 +106,11 @@ body{
 .navbar-inverse .navbar-nav > li > a {
     color: #ffffff;
     text-shadow: 0 -1px 1px #586835;
-    border-left: 1px solid #839b4e;
+    
     font-weight: bold;
+}
+#dropdown-user{
+  border-left: 1px solid #839b4e;
 }
 .navbar-inverse .navbar-toggle {
     border-color: #ffffff;

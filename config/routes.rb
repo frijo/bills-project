@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'main'=>'main_page#main'
+
   get 'sessions/login'
 
   root 'welcome#index'

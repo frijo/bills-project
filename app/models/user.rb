@@ -1,9 +1,18 @@
 # encoding: utf-8
 class User < ActiveRecord::Base
 	has_secure_password
-  
-
   has_attached_file :profile_photo
+  
+  def normal_user?
+    self.admin ==false
+  end
+  def admin_user?
+    self.admin ==true
+  end
+
+
+
+
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
 
 
