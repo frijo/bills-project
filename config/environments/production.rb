@@ -17,7 +17,7 @@ Rails.application.configure do
 
   #Permit show image on the server Heroku
 
-  config.serve_static_assets = false #chaging value to true this allow show the image in heroku
+  config.serve_static_assets = true #chaging value to true this allow show the image in heroku
   
  
   
