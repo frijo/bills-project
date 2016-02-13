@@ -3,8 +3,7 @@ class User < ActiveRecord::Base
 	#permit encryp the data of the password parameter => gem bcrypt
   has_secure_password
   # permit save the url in the DB => gem paperclip ... also allows move the upload image to public/system/users/profile_photos
-  has_attached_file :profile_photo
-  
+  has_attached_file :profile_photo,:url => "/asset/picture/:id/:style/:basename.:extension"
   # Proof if the current user is normal
   def normal_user?
     self.admin ==false
