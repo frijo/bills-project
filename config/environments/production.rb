@@ -3,7 +3,7 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
 
-  config.cache_classes = false #chaging value to true this allow show the image in heroku
+  config.cache_classes = true #chaging value to true this allow show the image in heroku
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
@@ -38,7 +38,7 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
 
-  config.assets.compile = true #chaging value to true this allow show the image in heroku
+  config.assets.compile = false #chaging value to true this allow show the image in heroku
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
@@ -46,7 +46,8 @@ Rails.application.configure do
   config.assets.digest = true  #chaging value to true this allow show the image in heroku
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
-
+ config.assets.compress = true
+ config.action_controller.asset_host = "http://sleepy-sea-97348.herokuapp.com/"
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
