@@ -1,0 +1,36 @@
+
+<div class="container">
+<h1>User list</h1>	
+<table class="table table-hover">
+  <tr>
+  	<th>Foto</th>
+    <th>Usuario</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Editar </th>
+    <th>Eliminar</th>
+    <th colspan="2"></th>
+  </tr>
+ 
+  <% @users.each do |user| %>
+    <tr>
+
+      <td><%= image_tag user.profile_photo,class: "img-circle"%></td>
+      <td><%= user.nick_name %></td>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= link_to 'Editar', edit_user_path(user.id) %></td>
+      
+      <td><%= link_to 'Eliminar', user_path(user), 
+              method: :delete, 
+              data: { confirm: 'Are you sure ?' }%></td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+</div>
+
+ 
+

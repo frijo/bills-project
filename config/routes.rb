@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+   get '/user_list' =>'users#user_list'
+   
+
   get 'main'=>'main_page#main'
 
   get 'sessions/login'
@@ -6,6 +10,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'signup' =>'users#new'
   resources :users
+ 
+
+
+  get '/combo' =>'users#index'
   get '/login' => 'sessions#login'
   post 'login' => 'sessions#authentication'
   delete 'logout'=> 'sessions#logout'

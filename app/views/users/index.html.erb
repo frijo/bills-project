@@ -1,0 +1,46 @@
+
+  
+  <style>
+  .custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  </style>
+  
+
+ 
+
+<div class="container">
+ 
+  <div class="ui-widget">
+<!--http://jqueryui.com/autocomplete/#combobox-->
+    <label>Your preferred programming language: </label>
+  
+    <select id="combobox">
+
+   	<option value="">Select one...</option>
+   	<% @users.each do |user| %>
+     
+      
+  	    
+  	    <option value=<%=user.nick_name%> > <%=user.nick_name%> -- <%=user.first_name%> <%=user.last_name%> </option>
+  	    
+    
+    <% end %>
+
+  	</select>
+    
+  </div>
+
+</div>

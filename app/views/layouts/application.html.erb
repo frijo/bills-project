@@ -2,16 +2,162 @@
 <html>
 <head>
   <title>BillsProject</title>
-
+  <meta charset="utf-8">
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
  
-  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <script src="../assets/javascipts/jquery/jquery-ui.js"></script>
 
+  <%= csrf_meta_tags %>
+   <!--Scrípt for autoserch select -->
+   <script>
+    (function( $ ) {
+      $.widget( "custom.combobox", {
+        _create: function() {
+          this.wrapper = $( "<span>" )
+            .addClass( "custom-combobox" )
+            .insertAfter( this.element );
+   
+          this.element.hide();
+          this._createAutocomplete();
+          this._createShowAllButton();
+        },
+   
+        _createAutocomplete: function() {
+          var selected = this.element.children( ":selected" ),
+            value = selected.val() ? selected.text() : "";
+   
+          this.input = $( "<input>" )
+            .appendTo( this.wrapper )
+            .val( value )
+            .attr( "title", "" )
+            .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
+            .autocomplete({
+              delay: 0,
+              minLength: 0,
+              source: $.proxy( this, "_source" )
+            })
+            .tooltip({
+              tooltipClass: "ui-state-highlight"
+            });
+   
+          this._on( this.input, {
+            autocompleteselect: function( event, ui ) {
+              ui.item.option.selected = true;
+              this._trigger( "select", event, {
+                item: ui.item.option
+              });
+            },
+   
+            autocompletechange: "_removeIfInvalid"
+          });
+        },
+   
+        _createShowAllButton: function() {
+          var input = this.input,
+            wasOpen = false;
+   
+          $( "<a>" )
+            .attr( "tabIndex", -1 )
+            
+            .tooltip()
+            .appendTo( this.wrapper )
+            .button({
+              icons: {
+                primary: "ui-icon-triangle-1-s"
+              },
+              text: false
+            })
+            .removeClass( "ui-corner-all" )
+            .addClass( "custom-combobox-toggle ui-corner-right" )
+            .mousedown(function() {
+              wasOpen = input.autocomplete( "widget" ).is( ":visible" );
+            })
+            .click(function() {
+              input.focus();
+   
+              // Close if already visible
+              if ( wasOpen ) {
+                return;
+              }
+   
+              // Pass empty string as value to search for, displaying all results
+              input.autocomplete( "search", "" );
+            });
+        },
+   
+        _source: function( request, response ) {
+          var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+          response( this.element.children( "option" ).map(function() {
+            var text = $( this ).text();
+            if ( this.value && ( !request.term || matcher.test(text) ) )
+              return {
+                label: text,
+                value: text,
+                option: this
+              };
+          }) );
+        },
+   
+        _removeIfInvalid: function( event, ui ) {
+   
+          // Selected an item, nothing to do
+          if ( ui.item ) {
+            return;
+          }
+   
+          // Search for a match (case-insensitive)
+          var value = this.input.val(),
+            valueLowerCase = value.toLowerCase(),
+            valid = false;
+          this.element.children( "option" ).each(function() {
+            if ( $( this ).text().toLowerCase() === valueLowerCase ) {
+              this.selected = valid = true;
+              return false;
+            }
+          });
+   
+          // Found a match, nothing to do
+          if ( valid ) {
+            return;
+          }
+   
+          // Remove invalid value
+          this.input
+            .val( "" )
+            .attr( "title", value + " no concuerda con ningun usuario" )
+            .tooltip( "open" );
+          this.element.val( "" );
+          this._delay(function() {
+            this.input.tooltip( "close" ).attr( "title", "" );
+          }, 2500 );
+          this.input.autocomplete( "instance" ).term = "";
+        },
+   
+        _destroy: function() {
+          this.wrapper.remove();
+          this.element.show();
+        }
+      });
+    })( jQuery );
+   
+    $(function() {
+      $( "#combobox" ).combobox();
+      $( "#toggle" ).click(function() {
+        $( "#combobox" ).toggle();
+      });
+    });
+  </script>
 </head>
 <body>
 <!---->
@@ -33,13 +179,13 @@
                 <ul class="dropdown-menu"> 
                   <% if current_user && current_user.admin_user? %>
                     <li><%= link_to "Crear Usuario", 'signup'%></a></li> 
-                    <li><a href="#">Editar Usuario</a></li>  
+                      
                     <li class="divider" role="separator"></li> 
-                    <li><a href="#">Eliminar Usuario</a></li>               
+                    <li><%= link_to "Editar / Eliminar Usuario", 'user_list'%></a></li>               
                   <%end%>
 
                   <%if current_user && current_user.normal_user?%>
-                    <li><a href="#">Editar Usuario</a></li> 
+                    <li><%= link_to 'Editar mi cuenta', edit_user_path(current_user) %></a></li> 
                   <%end%>
                 </ul> 
               </li> 
