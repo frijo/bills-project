@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-   get '/user_list' =>'users#user_list'
+  get '/user_list' =>'users#user_list'
    
 
   get 'main'=>'main_page#main'
