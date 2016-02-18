@@ -16,7 +16,15 @@ class ApplicationController < ActionController::Base
   def require_admin
     redirect_to '/main' unless current_user.admin_user?
   end
+  
   def require_normal_user
     redirect_to '/main' unless current_user.normal_user?
   end
+#https://www.youtube.com/watch?v=rSlDEvtk6lA
+ # def set_flash(type, object: nil)
+ #   flash[:from] = action_name
+ #   flash[:type] = type
+ #   flash[:object_type] = object.class.name
+ #   flash[:object_id] = object.id
+ # end
 end

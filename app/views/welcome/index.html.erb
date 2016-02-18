@@ -1,1 +1,18 @@
+<h1> Welcome#index</h1>
+<p> This is the index page Find me in app/views/welcome/index.html.erb</p>
+<br>
 
+<% if flash[:notice] %>
+    
+ <div class="alert alert-success" role="alert">
+	<stronger><%= flash[:notice] %></stronger>	  
+</div>
+ <% end %>
+
+<script type="text/javascript">
+$(function() {
+  setTimeout(function(){
+    $('.alert').slideUp(500);
+  }, 1000);
+});
+</script>

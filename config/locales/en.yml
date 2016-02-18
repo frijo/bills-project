@@ -56,3 +56,9 @@ en:
             name:
               blank: "Please Specify a Name"
               taken: "Please use a different name"
+        en:
+  helpers:
+    submit:
+      user:
+        create: "Registrar usuario"
+        update: "Editar usuario"      

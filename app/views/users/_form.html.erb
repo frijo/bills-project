@@ -1,45 +1,81 @@
 <%= form_for @user, html: { multipart: true } do |f| %>    
-     
-      <%= f.text_field :nick_name, class: "form-control", :placeholder => "Sobrenombre del usuario" %>
-      <%= f.error_message_on :nick_name %><br>
+     <%if current_user.admin == true%>
 
-      <%= f.text_field :first_name, class: "form-control", :placeholder => "Nombre" %>
-      <%= f.error_message_on :first_name %><br>
-      
-      <%= f.text_field :last_name, class: "form-control", :placeholder => "Apellido" %>
-      <%= f.error_message_on :last_name %><br>
-      
-      <%= f.email_field :email, class: "form-control",:placeholder => "Email" %>
-      <%= f.error_message_on :email %><br>
+          <%= f.text_field :nick_name, class: "form-control", :placeholder => "Sobrenombre del usuario" %>
+          <%= f.error_message_on :nick_name %><br>
 
-
-      <label class="control-label">Seleciona la imagen de perfil</label>
-    
-
-      <!--////////////////////////////////////////////////////////////////// -->
-      <div class="form-group">
-        <%= f.file_field :profile_photo,class: "file" %><br>
-      </div>
-
-     <!-- ///////////////////////////////////////////////////////////////////-->
-      
-      <%= f.password_field :password, class: "form-control", :placeholder => "Contraseña" %>
-      <%= f.error_message_on :password %><br>      
-      
-      <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Confirmar contraseña" %>
-      <%= f.error_message_on :password_confirmation %><br>
-      
-      <%=f.radio_button :admin,true,class: "RadioBtn-IsAdmin" %>
-      <%=f.label :true, 'Usuario administrador'%>
-
-      <%=f.radio_button :admin, false ,class: "RadioBtn-IsAdmin" %>
-      <%=f.label :false, 'Usuario normal'%><br>
+          <%= f.text_field :first_name, class: "form-control", :placeholder => "Nombre" %>
+          <%= f.error_message_on :first_name %><br>
+          
+          <%= f.text_field :last_name, class: "form-control", :placeholder => "Apellido" %>
+          <%= f.error_message_on :last_name %><br>
+          
+          <%= f.email_field :email, class: "form-control",:placeholder => "Email" %>
+          <%= f.error_message_on :email %><br>
 
 
-      <div class="login-buttoms">
-        <%= f.button "Registrar Usuario", class: "btn btn-success"  %>
-        <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
-      </div>
+          <label class="control-label">Seleciona la imagen de perfil</label>
+        
+
+          <!--////////////////////////////////////////////////////////////////// -->
+          <div class="form-group">
+            <%= f.file_field :profile_photo,class: "file" %><br>
+          </div>
+
+         <!-- ///////////////////////////////////////////////////////////////////-->
+          
+          <%= f.password_field :password, class: "form-control", :placeholder => "Contraseña" %>
+          <%= f.error_message_on :password %><br>      
+          
+          <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Confirmar contraseña" %>
+          <%= f.error_message_on :password_confirmation %><br>
+          
+          <%=f.radio_button :admin,true,class: "RadioBtn-IsAdmin" %>
+          <%=f.label :true, 'Usuario administrador'%>
+
+          <%=f.radio_button :admin, false ,class: "RadioBtn-IsAdmin" %>
+          <%=f.label :false, 'Usuario normal'%><br>
+
+
+          <div class="login-buttoms">
+             
+            <%= f.button  class: "btn btn-success"  %>
+            <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
+          </div>
+      <%else%>
+          <%= f.text_field :first_name, class: "form-control", :placeholder => "Nombre" %>
+          <%= f.error_message_on :first_name %><br>
+          
+          <%= f.text_field :last_name, class: "form-control", :placeholder => "Apellido" %>
+          <%= f.error_message_on :last_name %><br>
+          
+          <%= f.email_field :email, class: "form-control",:placeholder => "Email" %>
+          <%= f.error_message_on :email %><br>
+
+
+          <label class="control-label">Seleciona la imagen de perfil</label>
+        
+
+          <!--////////////////////////////////////////////////////////////////// -->
+          <div class="form-group">
+            <%= f.file_field :profile_photo,class: "file" %><br>
+          </div>
+
+         <!-- ///////////////////////////////////////////////////////////////////
+          <%= f.password_field :verify_password, class: "form-control", :placeholder => "Digite la contraseña anterior" %>
+          <%= f.error_message_on :verify_password %><br>
+
+          <%= f.password_field :password, class: "form-control", :placeholder => "Nueva contraseña" %>
+          <%= f.error_message_on :password %><br>      
+          
+          <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "Confirmar nueva contraseña" %>
+          <%= f.error_message_on :password_confirmation %><br>-->
+           <div class="login-buttoms">
+
+            <%= f.button  class: "btn btn-success"  %>
+            <%=link_to 'Cancelar', "/",class: "btn btn-danger"%>
+          </div>
+      <%end%>
   <% end %>
 
 <script type="text/javascript">

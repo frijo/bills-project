@@ -1,6 +1,15 @@
 
 <div class="container">
-<h1>User list</h1>	
+<h1>User list</h1>
+<% if flash[:notice] %>
+    
+  <div class="alert alert-success" role="alert">
+    <stronger><%= flash[:notice] %></stronger>    
+  </div>
+<% end %>
+
+
+
 <table class="table table-hover">
   <tr>
   	<th>Foto</th>
@@ -23,7 +32,7 @@
       
       <td><%= link_to 'Eliminar', user_path(user), 
               method: :delete, 
-              data: { confirm: 'Are you sure ?' }%></td>
+              data: { confirm: 'Esta seguro de eliminar a '+ user.nick_name+'?' }%></td>
     </tr>
   <% end %>
 </table>
@@ -33,4 +42,10 @@
 </div>
 
  
-
+<script type="text/javascript">
+$(function() {
+  setTimeout(function(){
+    $('.alert').slideUp(500);
+  }, 1000);
+});
+</script>

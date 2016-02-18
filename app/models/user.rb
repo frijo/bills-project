@@ -6,12 +6,12 @@ class User < ActiveRecord::Base
   has_attached_file :profile_photo,:url => "/asset/picture/:id/:style/:basename.:extension"
   # Proof if the current user is normal
   def normal_user?
-    self.admin ==false
-  end
+      self.admin ==false
+    end
     # Proof if the current user is Admnin
-  def admin_user?
+   def admin_user?
     self.admin ==true
-  end
+    end
   #Validations of the fields of User Create/Update/Delete
   validates_attachment_content_type :profile_photo, content_type: /\Aimage\/.*\Z/
   validates :nick_name, :email,:first_name,:last_name, :email, presence:{message: "Este campo no puede estar en blanco"}

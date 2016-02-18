@@ -19,8 +19,7 @@ Rails.application.configure do
 
   config.serve_static_assets = false #chaging value to true this allow show the image in heroku
   
- 
-  # Enable serving of images, stylesheets, and JavaScripts from an asset server
+
   config.action_controller.asset_host = "http://sleepy-sea-97348.herokuapp.com/"
   
   
