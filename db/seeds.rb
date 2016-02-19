@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 u1 = User.create(nick_name:"Admin",first_name: "David", last_name: "Arroyo", email: "frijo45@hotmail.com", password: "passAdmin",admin: true,profile_photo:"http://usercontent2.hubimg.com/9137907.png")
 u2 = User.create(nick_name:"wolfhot",first_name: "Davida", last_name: "Arroyoa", email: "frijo45@gmail.com", password: "passAdmin",admin: true,profile_photo:"http://usercontent2.hubimg.com/9137907.png")
+u3 = User.create(nick_name:"wolfhot2",first_name: "Jose David", last_name: "Arroyo Alvarez", email: "frijo50@gmail.com", password: "123456",admin: false,profile_photo:"https://www.dropbox.com/s/rj0i7rung87uoc6/pp.jpg?dl=0")
+
 fc1= FoodCategory.create(category:"meal")
 fc2= FoodCategory.create(category:"drinks")
 f1=Food.create(code_food: "cod-tila",food_name:"Tilapia",cost_price: 2500,sale_price: 4500,food_categories_id:1)
