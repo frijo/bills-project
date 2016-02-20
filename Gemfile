@@ -45,6 +45,8 @@ gem 'table_print'
 gem 'dynamic_form'
 
 gem "paperclip", "~> 4.3"
+#HELP TO SAVE IMAGE IN AWS AMAZON
+gem 'aws-sdk', '~> 2'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
