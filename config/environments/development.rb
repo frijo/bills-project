@@ -38,4 +38,13 @@ Rails.application.configure do
    config.serve_static_files = true
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+ config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+   :bucket => ENV['heroku-bills-project'],
+   :access_key_id => ENV['AKIAIRV7RV677YW43VAA'],
+   :secret_access_key => ENV['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']
+  }
+}
+  
 end
