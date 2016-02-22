@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 	#permit encryp the data of the password parameter => gem bcrypt
   has_secure_password
   # permit save the url in the DB => gem paperclip ... also allows move the upload image to public/system/users/profile_photos
-  has_attached_file :profile_photo,:url => "/asset/picture/:id/:style/:basename.:extension"
+  has_attached_file :profile_photo#,:url => "/asset/picture/:id/:style/:basename.:extension"
 
   #has_attached_file :profile_photo,:default_url => "/asset/picture/:id/:style/:basename.:extension",:storage => :s3,:bucket => 'heroku-bills-project',:s3_credentials => S3_CREDENTIALS
 
