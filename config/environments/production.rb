@@ -22,7 +22,7 @@ Rails.application.configure do
   
   #config.action_controller.asset_host = "https://bills-project.herokuapp.com/"
   
-#config.action_controller.asset_host = "//#{ENV['heroku-bills-project']}.s3.amazonaws.com"
+config.action_controller.asset_host = "//#{ENV['heroku-bills-project']}.s3.amazonaws.com"
 
 config.paperclip_defaults = {
   :storage => :s3,
