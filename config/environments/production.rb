@@ -22,6 +22,16 @@ Rails.application.configure do
   
   #config.action_controller.asset_host = "https://bills-project.herokuapp.com/"
   
+
+  
+  config.paperclip_defaults = {
+  :storage => :s3,
+  :s3_credentials => {
+    :bucket => ENV['heroku-bills-project'],
+    :access_key_id => ENV['AKIAIRV7RV677YW43VAA'],
+    :secret_access_key => ENV['H3+KWOHQw/Hh1uVlRYMimTY/Vd+4A4lrDLoT7oiO']
+  }
+}
   
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
