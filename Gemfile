@@ -47,11 +47,6 @@ gem 'dynamic_form'
 gem "paperclip", "~> 4.3"
 #HELP TO SAVE IMAGE IN AWS AMAZON
 gem 'aws-sdk', '~> 2'
-gem 'aws-sdk-resources', '~> 2'
- 
-# in code
-require 'aws-sdk'
-require 'aws-sdk-resources'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
