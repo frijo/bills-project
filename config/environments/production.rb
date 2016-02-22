@@ -20,9 +20,9 @@ Rails.application.configure do
   #config.serve_static_assets = true #chaging value to true this allow show the image in heroku
   config.serve_static_files = true
   
-  #config.action_controller.asset_host = "https://bills-project.herokuapp.com/"
+  config.action_controller.asset_host = "https://bills-project.herokuapp.com/"
   
-config.action_controller.asset_host = "//#{ENV['heroku-bills-project']}.s3.amazonaws.com"
+#config.action_controller.asset_host = "//#{ENV['heroku-bills-project']}.s3.amazonaws.com"
 
 config.paperclip_defaults = {
   :storage => :s3,
