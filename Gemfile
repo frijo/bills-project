@@ -46,7 +46,8 @@ gem 'dynamic_form'
 #Help to save image's url to the DB and move the image to public(local) and amazon (production)
 gem "paperclip", "~> 4.3"
 #HELP TO SAVE IMAGE IN AWS AMAZON
-gem 'aws-sdk', '~> 2'
+#gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
